@@ -279,6 +279,38 @@ transform: rotate(-45deg);
 	cursor: pointer;
 }
 
+.home-main__btn-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 117px;
+  height: 37px;
+  text-align: start;
+	font-weight: bold;
+  background: #2F80ED;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  display: none;
+	border: none;
+}
+.home-main__btn-to-top:hover {
+  background: #1566d1;
+}
+.home-main__btn-to-top_show {
+  display: block;
+}
+.home-main__arrow-to-top{
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: #fff;
+	position: absolute;
+	color: #1566d1;
+	left: 77%;
+	top: 22%;
+	text-align: center;
+}
 /* FOOTER BLOCK CSS */
 .home-footer__copyright{
 	margin: 1rem;
