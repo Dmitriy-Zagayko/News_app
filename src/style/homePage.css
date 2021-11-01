@@ -4,11 +4,10 @@ body {
 
 /* HEADER BLOCK CSS */
 .home-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	background-color: white;
+	display: grid;
+	grid-template-columns: 1fr 1fr 4fr;
 	margin: 1rem;
+	align-items: center;
 }
 .home-header__a-logo{
 	border: none;
@@ -35,10 +34,145 @@ body {
 	border: none;
 	border-radius: 4px;
 	outline: none;
-	text-indent: 20px;
+	text-indent: 21px;
 }
 .home-header__burger-menu{
+	justify-self: end;
+}
+.home-header__burger-menu-bloc {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+@media (max-width: 60rem) {
+	.home-header__burger-menu-bloc {
+	height: 63px;
+	}
+}
+.home-header__burger-menu-nav {
+	transition: 0.5s;
+	transform-origin: right center;
+	transform: scaleX(0) translateX(20%);
+	opacity: 0;
+}
+@media (max-width: 40rem) {
+	.home-header__burger-menu-nav {
+	list-style: none;
+	}
+}
+.home-header__burger-menu-nav_active {
+	margin: 0;
+	padding: 0;
+	transform: scaleX(1) translateX(0%);
+	opacity: 1;
+	z-index: 1;
 	cursor: pointer;
+}
+.home-header__burger-menu-nav-link{
+	display: inline-block;
+	text-decoration: none;
+	color: #000;
+	margin-right: 7rem;
+}
+@media (max-width: 40rem) {
+	.home-header__burger-menu-nav-link {
+	display: block;
+	margin-right: 2rem;
+	}
+}
+@media (min-width: 40.01rem) and (max-width: 60rem) {
+	.home-header__burger-menu-nav-link {
+	margin-right: 2.6rem;
+	}
+}
+.home-header__burger-menu-wrapper-ul {
+	height: 10px;
+}
+.home-header__burger-menu-nav-categories{
+	position: relative;
+	list-style: none;
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+.home-header__burger-menu-nav-link:hover div .home-header__burger-menu-nav-categories  {
+	position: absolute;
+	right: 68px;
+	display: grid;
+	margin: 10px;
+	width: 220px;
+	height: 113px;
+	background-color: #fff;
+	box-shadow: 0px 0px 4px #BDBDBD;
+	border-radius: 5px;
+	grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 40rem) {
+	.home-header__burger-menu-nav-link:hover div .home-header__burger-menu-nav-categories {
+		right: 0px;
+	}
+}
+@media (min-width: 40.01rem) and (max-width: 60rem) {
+	.home-header__burger-menu-nav-link:hover div .home-header__burger-menu-nav-categories {
+		right: 125px;
+	}
+}
+@media (min-width: 60.01rem) {
+	.home-header__burger-menu-nav-link:hover div .home-header__burger-menu-nav-categories {
+		right: 255px;
+	}
+}
+.home-header__burger-menu-nav-link:hover div .home-header__burger-menu-nav-categories li{
+	margin: 4px 0px 0px 28px;
+	padding: 0px;
+}
+.home-header__burger-menu {
+	height: 100%;
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.home-header__btn-menu {
+	width: 20px;
+	height: 20px;
+	border: none;
+	background-color: #fff;
+	border-radius: 50%;
+	position: relative;
+	cursor: pointer;
+}
+.home-header__btn-menu span,
+.home-header__btn-menu span::before,
+.home-header__btn-menu span::after {
+	position: absolute;
+	top: 50%;
+	margin-top: -1px;
+	left: 50%;
+	margin-left: -10px;
+	width: 20px;
+	height: 2px;
+	background-color: #000;
+}
+.home-header__btn-menu span::before,
+.home-header__btn-menu span::after {
+	content: '';
+	transition: 0.3s;
+}
+.home-header__btn-menu span::before {
+	transform: translateY(-5px);
+}
+.home-header__btn-menu span::after {
+	transform: translateY(5px);
+}
+.home-header__btn-menu_active span {
+	height: 0;
+}
+.home-header__btn-menu_active span::before {
+transform: rotate(45deg);
+}
+.home-header__btn-menu_active span::after {
+transform: rotate(-45deg);
 }
 
 /* MAIN BLOCK CSS */
@@ -76,7 +210,7 @@ body {
   background: #fff;
   position: relative;
 }
-@media (min-width: 60em) {
+@media (min-width: 40em) {
 	.home-main__img-top-news-bloc {
     flex-basis: 40%;
     height: auto;
@@ -101,7 +235,7 @@ body {
 }
 @media (min-width: 30em) {
   .home-main__ul-minor-news-cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (min-width: 60em) {
